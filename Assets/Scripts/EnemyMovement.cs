@@ -1,28 +1,26 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class EnemyMovement : MonoBehaviour
 {
-    [SerializeField] private ShipMovement shipMovement;
-    [SerializeField] private Rigidbody2D rigidbody2D;
+    [SerializeField] private Transform targetTransform;
+    [SerializeField] private Rigidbody2D rb2D;
     [SerializeField] private float speed = 5f;
     [SerializeField] private float orbitRadius = 2.5f;
 
     private void FixedUpdate()
     {
-        var distance = Vector2.Distance(shipMovement.transform.position, transform.position);
-        Debug.Log(distance);
+        var enemyTransform = transform;
+        var distance = Vector2.Distance(targetTransform.position, enemyTransform.position);
         if (distance > orbitRadius)
         {
-            rigidbody2D.AddForce(transform.up * speed);
+            rb2D.AddForce(enemyTransform.up * speed);
         }
         
-        var targetDirection = shipMovement.transform.position - transform.position;
-        var desiredRotation = Quaternion.LookRotation(transform.forward, targetDirection.normalized);
+        var targetDirection = targetTransform.position - enemyTransform.position;
+        var desiredRotation = Quaternion.LookRotation(enemyTransform.forward, targetDirection.normalized);
         
-        rigidbody2D.MoveRotation(Quaternion.Lerp(transform.rotation, desiredRotation, speed * Time.fixedDeltaTime));
+        rb2D.MoveRotation(Quaternion.Lerp(enemyTransform.rotation, desiredRotation, speed * Time.fixedDeltaTime));
 
     }
 }
