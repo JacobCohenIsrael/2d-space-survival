@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 1593657377796148304}
   - component: {fileID: 555017773964835357}
   - component: {fileID: -802379834717394084}
+  - component: {fileID: 6460489622951386079}
   m_Layer: 7
   m_Name: EnemyShip
   m_TagString: EnemyShip
@@ -119,7 +120,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cddb2dfb67c2462fb871c9e9e97dae6f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 10
+  health: 3
+--- !u!114 &6460489622951386079
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1593657377796148332}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05b93abc494840442a21b5023842f2b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectsToSpawn:
+  - {fileID: 823658307084598915, guid: 2f7c493ec8bd8e8488ffc66c667fb5d0, type: 3}
+  - {fileID: 823658307084598915, guid: 2f7c493ec8bd8e8488ffc66c667fb5d0, type: 3}
+  - {fileID: 823658307084598915, guid: 2f7c493ec8bd8e8488ffc66c667fb5d0, type: 3}
+  explosionForce: 4
+  explosionRadius: 2
 --- !u!1 &1593657379287220756
 GameObject:
   m_ObjectHideFlags: 0
