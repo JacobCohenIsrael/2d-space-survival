@@ -78,9 +78,9 @@ GameObject:
   - component: {fileID: 3369586250624194367}
   - component: {fileID: 3728973601839958345}
   - component: {fileID: 3728973601839958350}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PlayerShip
-  m_TagString: Untagged
+  m_TagString: PlayerShip
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -129,10 +129,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b1406798ed76d14cab80d1739b15f2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fireRate: 0.5
   gameInput: {fileID: 0}
   weaponModules:
   - {fileID: 5552708503524230945}
   - {fileID: 8131944392269451896}
+  parentRigidBody: {fileID: 3728973601839958345}
 --- !u!50 &3728973601839958345
 Rigidbody2D:
   serializedVersion: 4
@@ -244,7 +246,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: -9095717837082945937, guid: 207ee8102dd4143d288186ef0be518ee, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.14686084, g: 1, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -378,6 +380,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1514718900304141567}
     m_Modifications:
+    - target: {fileID: 4173947152838153382, guid: 41362d5744425ee40949c056b81caef9, type: 3}
+      propertyPath: projectile
+      value: 
+      objectReference: {fileID: 1305751258688124415, guid: 5a05ce1f77136b24d831f6e2587bfe8c, type: 3}
     - target: {fileID: 8184266898073558782, guid: 41362d5744425ee40949c056b81caef9, type: 3}
       propertyPath: m_Name
       value: WeaponModule (1)
@@ -451,6 +457,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1514718900304141567}
     m_Modifications:
+    - target: {fileID: 4173947152838153382, guid: 41362d5744425ee40949c056b81caef9, type: 3}
+      propertyPath: projectile
+      value: 
+      objectReference: {fileID: 1305751258688124415, guid: 5a05ce1f77136b24d831f6e2587bfe8c, type: 3}
     - target: {fileID: 8184266898073558782, guid: 41362d5744425ee40949c056b81caef9, type: 3}
       propertyPath: m_Name
       value: WeaponModule

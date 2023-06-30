@@ -3,7 +3,7 @@ using UnityEngine.Serialization;
 
 public class EnemyMovement : MonoBehaviour
 {
-    [SerializeField] private Transform targetTransform;
+    public Transform targetTransform;
     [SerializeField] private Rigidbody2D rb2D;
     [SerializeField] private float speed = 5f;
     [SerializeField] private float orbitRadius = 2.5f;

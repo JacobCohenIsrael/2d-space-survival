@@ -4,7 +4,8 @@ using UnityEngine.InputSystem;
 
 public class GameInput : MonoBehaviour
 {
-    public event EventHandler FireEvent;
+    public event EventHandler FireStartedEvent;
+    public event EventHandler FireCanceledEvent;
 
     private PlayerInputActions playerInputActions;
 
@@ -16,12 +17,14 @@ public class GameInput : MonoBehaviour
 
     private void Start()
     {
-        playerInputActions.Ship.Fire.performed += OnFireEvent;
+        playerInputActions.Ship.Fire.started += OnFireStartedEvent;
+        playerInputActions.Ship.Fire.canceled += OnFireCanceledEvent;
     }
 
     private void OnDestroy()
     {
-        playerInputActions.Ship.Fire.performed -= OnFireEvent;
+        playerInputActions.Ship.Fire.performed -= OnFireStartedEvent;
+        playerInputActions.Ship.Fire.canceled -= OnFireCanceledEvent;
 
     }
 
@@ -30,8 +33,13 @@ public class GameInput : MonoBehaviour
         return playerInputActions.Ship.Move.ReadValue<Vector2>().normalized;
     }
 
-    protected virtual void OnFireEvent(InputAction.CallbackContext callbackContext)
+    protected virtual void OnFireStartedEvent(InputAction.CallbackContext callbackContext)
     {
-        FireEvent?.Invoke(this, EventArgs.Empty);
+        FireStartedEvent?.Invoke(this, EventArgs.Empty);
+    }
+    
+    protected virtual void OnFireCanceledEvent(InputAction.CallbackContext ctx)
+    {
+        FireCanceledEvent?.Invoke(this, EventArgs.Empty);
     }
 }
