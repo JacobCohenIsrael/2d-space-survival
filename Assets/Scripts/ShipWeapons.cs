@@ -12,6 +12,8 @@ public class ShipWeapons : MonoBehaviour
 
     [SerializeField] private List<WeaponModule> weaponModules;
 
+    [SerializeField] private GravityBeam gravityBeam;
+
     [SerializeField] private Rigidbody2D parentRigidBody;
 
     private bool isFiring;
@@ -27,6 +29,10 @@ public class ShipWeapons : MonoBehaviour
 
     private void Update()
     {
+        if (isFiring)
+        {
+            gravityBeam.Attract();
+        }
         if (isFiring && Time.time >= nextFireTime)
         {
             var initialVelocity = parentRigidBody.velocity;
