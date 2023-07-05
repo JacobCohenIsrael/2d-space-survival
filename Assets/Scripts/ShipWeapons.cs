@@ -18,33 +18,42 @@ public class ShipWeapons : MonoBehaviour
 
     private bool isFiring;
 
+    private bool isPulling;
+
     private float nextFireTime;
     
     private void Start()
     {
         gameInput.FireStartedEvent += OnFireStarted;
         gameInput.FireCanceledEvent += OnFireCanceled;
+
+        gameInput.PullStartedEvent += OnPullStarted;
+        gameInput.PullCanceledEvent += OnPullCanceled;
         nextFireTime = Time.time;
+    }
+    
+    private void OnDestroy()
+    {
+        gameInput.FireStartedEvent -= OnFireStarted;
+        gameInput.FireCanceledEvent -= OnFireCanceled;
+        
+        gameInput.PullStartedEvent -= OnPullStarted;
+        gameInput.PullCanceledEvent -= OnPullCanceled;
     }
 
     private void Update()
     {
-        if (isFiring)
+        if (isPulling)
         {
             gravityBeam.Attract();
         }
+        
         if (isFiring && Time.time >= nextFireTime)
         {
             var initialVelocity = parentRigidBody.velocity;
             weaponModules.ForEach(weapon => weapon.Fire(ProjectileOrigin.Player, initialVelocity));
             nextFireTime = Time.time + fireRate;
         }
-    }
-
-    private void OnDestroy()
-    {
-        gameInput.FireStartedEvent -= OnFireStarted;
-        gameInput.FireCanceledEvent -= OnFireCanceled;
     }
 
     private void OnFireStarted(object sender, EventArgs e)
@@ -55,5 +64,17 @@ public class ShipWeapons : MonoBehaviour
     private void OnFireCanceled(object sender, EventArgs e)
     {
         isFiring = false;
+    }
+
+    private void OnPullStarted(object sender, EventArgs e)
+    {
+        gravityBeam.beamView.gameObject.SetActive(true);
+        isPulling = true;
+    }
+
+    private void OnPullCanceled(object sender, EventArgs e)
+    {
+        gravityBeam.beamView.gameObject.SetActive(false);
+        isPulling = false;
     }
 }

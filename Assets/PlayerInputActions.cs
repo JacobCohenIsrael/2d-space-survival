@@ -44,6 +44,15 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Pull"",
+                    ""type"": ""Button"",
+                    ""id"": ""497f5c82-eee8-4caa-a4e0-ec8f1ec76877"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -178,6 +187,28 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                     ""action"": ""Fire"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""45f30929-004c-42b5-98df-c5f4490b20e0"",
+                    ""path"": ""<Mouse>/rightButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Pull"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""d0bea3a1-6303-481a-af63-37ee0799830a"",
+                    ""path"": ""<Keyboard>/f"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Pull"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -188,6 +219,7 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
         m_Ship = asset.FindActionMap("Ship", throwIfNotFound: true);
         m_Ship_Move = m_Ship.FindAction("Move", throwIfNotFound: true);
         m_Ship_Fire = m_Ship.FindAction("Fire", throwIfNotFound: true);
+        m_Ship_Pull = m_Ship.FindAction("Pull", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -249,12 +281,14 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
     private IShipActions m_ShipActionsCallbackInterface;
     private readonly InputAction m_Ship_Move;
     private readonly InputAction m_Ship_Fire;
+    private readonly InputAction m_Ship_Pull;
     public struct ShipActions
     {
         private @PlayerInputActions m_Wrapper;
         public ShipActions(@PlayerInputActions wrapper) { m_Wrapper = wrapper; }
         public InputAction @Move => m_Wrapper.m_Ship_Move;
         public InputAction @Fire => m_Wrapper.m_Ship_Fire;
+        public InputAction @Pull => m_Wrapper.m_Ship_Pull;
         public InputActionMap Get() { return m_Wrapper.m_Ship; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -270,6 +304,9 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                 @Fire.started -= m_Wrapper.m_ShipActionsCallbackInterface.OnFire;
                 @Fire.performed -= m_Wrapper.m_ShipActionsCallbackInterface.OnFire;
                 @Fire.canceled -= m_Wrapper.m_ShipActionsCallbackInterface.OnFire;
+                @Pull.started -= m_Wrapper.m_ShipActionsCallbackInterface.OnPull;
+                @Pull.performed -= m_Wrapper.m_ShipActionsCallbackInterface.OnPull;
+                @Pull.canceled -= m_Wrapper.m_ShipActionsCallbackInterface.OnPull;
             }
             m_Wrapper.m_ShipActionsCallbackInterface = instance;
             if (instance != null)
@@ -280,6 +317,9 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                 @Fire.started += instance.OnFire;
                 @Fire.performed += instance.OnFire;
                 @Fire.canceled += instance.OnFire;
+                @Pull.started += instance.OnPull;
+                @Pull.performed += instance.OnPull;
+                @Pull.canceled += instance.OnPull;
             }
         }
     }
@@ -288,5 +328,6 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
     {
         void OnMove(InputAction.CallbackContext context);
         void OnFire(InputAction.CallbackContext context);
+        void OnPull(InputAction.CallbackContext context);
     }
 }

@@ -7,6 +7,8 @@ public class GravityBeam : MonoBehaviour
     public float attractionForce = 10f;  // Force applied to attract resources
     public float pickupDistance = 2f;  // Distance at which resources can be picked up
     public float coneAngle = 30f;  // Angle of the cone in degrees
+
+    public GameObject beamView;
     
     public  void Attract()
     {
