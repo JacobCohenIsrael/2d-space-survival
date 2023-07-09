@@ -129,11 +129,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2759540aeba1af448b353bb9bf0e71e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gravityBeamActiveEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7224586230514111305}
+        m_TargetAssemblyTypeName: GravityBeam.GravityBeamView, Assembly-CSharp
+        m_MethodName: ToggleBeam
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   maxDistance: 5
-  attractionForce: 3
+  attractionForce: 10
   pickupDistance: 0.5
   coneAngle: 45
-  beamView: {fileID: 6724847704213774162}
 --- !u!1 &3675659455755504111
 GameObject:
   m_ObjectHideFlags: 0
@@ -143,6 +157,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3675659455755504110}
+  - component: {fileID: 7224586230514111305}
   m_Layer: 0
   m_Name: GravityBeamVisual
   m_TagString: Untagged
@@ -167,6 +182,19 @@ Transform:
   m_Father: {fileID: 3675659455555070278}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7224586230514111305
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3675659455755504111}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96905165cb979dd48a6d6a112a6b0b4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  beam: {fileID: 6724847704213774162}
 --- !u!1 &6724847704213774162
 GameObject:
   m_ObjectHideFlags: 0

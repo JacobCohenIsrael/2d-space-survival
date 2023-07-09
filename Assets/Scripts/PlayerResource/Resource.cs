@@ -7,12 +7,9 @@ namespace PlayerResource
     {
         [SerializeField] private ResourceType resourceType;
 
-        private void OnTriggerEnter2D(Collider2D other)
+        public void OnPickup()
         {
-            if (other.gameObject.layer == LayerMask.NameToLayer("Player"))
-            {
-                Destroy(gameObject);
-            }
+            Destroy(gameObject);
         }
     }
 }

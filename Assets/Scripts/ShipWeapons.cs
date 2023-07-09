@@ -12,7 +12,7 @@ public class ShipWeapons : MonoBehaviour
 
     [SerializeField] private List<WeaponModule> weaponModules;
 
-    [SerializeField] private GravityBeam gravityBeam;
+    [SerializeField] private GravityBeam.GravityBeam gravityBeam;
 
     [SerializeField] private Rigidbody2D parentRigidBody;
 
@@ -43,11 +43,6 @@ public class ShipWeapons : MonoBehaviour
 
     private void Update()
     {
-        if (isPulling)
-        {
-            gravityBeam.Attract();
-        }
-        
         if (isFiring && Time.time >= nextFireTime)
         {
             var initialVelocity = parentRigidBody.velocity;
@@ -68,13 +63,11 @@ public class ShipWeapons : MonoBehaviour
 
     private void OnPullStarted(object sender, EventArgs e)
     {
-        gravityBeam.beamView.gameObject.SetActive(true);
-        isPulling = true;
+        gravityBeam.StartPulling();
     }
 
     private void OnPullCanceled(object sender, EventArgs e)
     {
-        gravityBeam.beamView.gameObject.SetActive(false);
-        isPulling = false;
+        gravityBeam.StopPulling();
     }
 }
