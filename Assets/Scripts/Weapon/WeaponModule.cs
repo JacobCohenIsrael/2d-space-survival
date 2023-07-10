@@ -1,3 +1,4 @@
+using Gamefather.Projectile;
 using Projectile;
 using UnityEngine;
 
@@ -6,7 +7,7 @@ namespace Weapon
     public class WeaponModule : MonoBehaviour
     {
         [SerializeField] private float fireRate = 0.5f;
-        [SerializeField] private ProjectileMovement projectile;
+        [SerializeField] private ProjectileMovementController projectile;
         [SerializeField] private Transform projectileExitTransform;
         public void Fire(ProjectileOrigin origin, Vector2 initialVelocity = default)
         {

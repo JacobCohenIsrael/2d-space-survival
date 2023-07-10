@@ -1,10 +1,12 @@
+using Gamefather.Attributes;
+using Gamefather.PlayerResource;
 using PlayerResource;
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace GravityBeam
+namespace Gamefather.GravityBeam
 {
-    public class GravityBeam : MonoBehaviour
+    public class GravityBeamController : MonoBehaviour
     {
         [SerializeField] private UnityEvent<bool> gravityBeamActiveEvent; 
 
@@ -25,31 +27,33 @@ namespace GravityBeam
             // Iterate through all the hits
             foreach (var hit in hits)
             {
-                Resource resource = hit.collider.GetComponent<Resource>();
-                if (resource != null)
+                ResourceController resourceController = hit.collider.GetComponent<ResourceController>();
+                if (resourceController != null)
                 {
-                    Rigidbody2D resourceRb = resource.GetComponent<Rigidbody2D>();
+                    Rigidbody2D resourceRb = resourceController.GetComponent<Rigidbody2D>();
                     if (resourceRb != null)
                     {
-                        var directionToShip = (Vector2)transform.position - (Vector2)resource.transform.position;
+                        var directionToShip = (Vector2)transform.position - (Vector2)resourceController.transform.position;
                         resourceRb.AddForce(directionToShip.normalized * attractionForce, ForceMode2D.Force);
 
                         var distanceToShip = directionToShip.magnitude;
                         if (distanceToShip <= pickupDistance)
                         {
-                            resource.OnPickup();
+                            resourceController.OnPickup();
                         }
                     }
                 }
             }
         }
 
+        [Button("Start Pulling")]
         public void StartPulling()
         {
             isAttracting = true;
             gravityBeamActiveEvent.Invoke(true);
         }
 
+        [Button("Stop Pulling")]
         public void StopPulling()
         {
             isAttracting = false;

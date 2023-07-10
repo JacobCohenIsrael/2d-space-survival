@@ -1,8 +1,9 @@
+using Projectile;
 using UnityEngine;
 
-namespace Projectile
+namespace Gamefather.Projectile
 {
-    public class ProjectileMovement : MonoBehaviour
+    public class ProjectileMovementController : MonoBehaviour
     {
         [SerializeField] private float speed = 5f;
         [SerializeField] private Rigidbody2D rb2D;

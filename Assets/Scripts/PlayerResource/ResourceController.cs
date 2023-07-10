@@ -1,9 +1,9 @@
-using System;
+using PlayerResource;
 using UnityEngine;
 
-namespace PlayerResource
+namespace Gamefather.PlayerResource
 {
-    public class Resource : MonoBehaviour
+    public class ResourceController : MonoBehaviour
     {
         [SerializeField] private ResourceType resourceType;
 

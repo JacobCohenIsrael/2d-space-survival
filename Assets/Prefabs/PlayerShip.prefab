@@ -78,6 +78,7 @@ GameObject:
   - component: {fileID: 3369586250624194367}
   - component: {fileID: 3728973601839958345}
   - component: {fileID: 3728973601839958350}
+  - component: {fileID: 1144216750557902505}
   m_Layer: 6
   m_Name: PlayerShip
   m_TagString: PlayerShip
@@ -130,12 +131,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b1406798ed76d14cab80d1739b15f2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fireRate: 0.5
+  fireRate: 0.25
   gameInput: {fileID: 0}
   weaponModules:
   - {fileID: 5552708503524230945}
   - {fileID: 8131944392269451896}
-  gravityBeam: {fileID: 1432110204851156589}
+  gravityBeamController: {fileID: 1432110204851156589}
   parentRigidBody: {fileID: 3728973601839958345}
 --- !u!50 &3728973601839958345
 Rigidbody2D:
@@ -174,6 +175,19 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 1, y: 2}
   m_Direction: 0
+--- !u!114 &1144216750557902505
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3728973601839958354}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cddb2dfb67c2462fb871c9e9e97dae6f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 1000
 --- !u!1 &3728973602079586571
 GameObject:
   m_ObjectHideFlags: 0
