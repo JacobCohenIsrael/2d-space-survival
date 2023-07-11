@@ -1,5 +1,11 @@
 {
   "dependencies": {
+    "com.thegamefather.core": {
+      "version": "file:C:/Users/yaki_/OneDrive/Desktop/Projects/unity-skeleton-project/Packages/The Gamefather Core",
+      "depth": 0,
+      "source": "local",
+      "dependencies": {}
+    },
     "com.unity.2d.animation": {
       "version": "7.0.8",
       "depth": 1,

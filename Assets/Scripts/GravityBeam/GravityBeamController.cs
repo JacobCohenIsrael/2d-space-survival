@@ -1,6 +1,5 @@
-using Gamefather.Attributes;
 using Gamefather.PlayerResource;
-using PlayerResource;
+using JCI.Attributes;
 using UnityEngine;
 using UnityEngine.Events;
 
