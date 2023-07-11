@@ -1,6 +1,6 @@
 {
   "dependencies": {
-    "com.thegamefather.core": "file:C:/Users/yaki_/OneDrive/Desktop/Projects/unity-skeleton-project/Packages/The Gamefather Core",
+    "com.thegamefather.core": "https://github.com/JacobCohenIsrael/unity-core.git",
     "com.unity.cinemachine": "2.8.9",
     "com.unity.collab-proxy": "1.17.6",
     "com.unity.feature.2d": "1.0.0",

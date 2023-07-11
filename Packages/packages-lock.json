@@ -1,10 +1,11 @@
 {
   "dependencies": {
     "com.thegamefather.core": {
-      "version": "file:C:/Users/yaki_/OneDrive/Desktop/Projects/unity-skeleton-project/Packages/The Gamefather Core",
+      "version": "https://github.com/JacobCohenIsrael/unity-core.git",
       "depth": 0,
-      "source": "local",
-      "dependencies": {}
+      "source": "git",
+      "dependencies": {},
+      "hash": "96e3bc6fb8f7946bf9446ee958f88267c43b0162"
     },
     "com.unity.2d.animation": {
       "version": "7.0.8",
