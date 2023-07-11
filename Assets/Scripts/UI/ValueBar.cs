@@ -13,6 +13,7 @@ namespace Gamefather.UI
         {
             slider.minValue = 0;
             slider.maxValue = maxValue;
+            slider.value = currentValue.value;
             slider.wholeNumbers = true;
             currentValue.Updated += OnCurrentValueUpdated;
         }
