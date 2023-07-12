@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4680039614162996217}
   - component: {fileID: 4680039614162996218}
+  - component: {fileID: 772149046304155995}
   m_Layer: 0
   m_Name: ResourceManager
   m_TagString: Untagged
@@ -44,5 +45,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9bab789c484cec4a82b88def6f12346, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  purpleResourceCollectedEvent: {fileID: 11400000, guid: ad7b28ad9fe4bea489fe37dd2569984f, type: 2}
-  purpleResourceAmount: {fileID: 11400000, guid: 5d045a7e42374c046b8b5fbf2ffdb3de, type: 2}
+  purpleliumResourceAmount: {fileID: 11400000, guid: 8443f442691220f498dbb92326c587a8, type: 2}
+  blueriumResourceAmount: {fileID: 11400000, guid: 639c7bd2f00e57b45b8d4c81b9b15534, type: 2}
+  greeniumResourceAmount: {fileID: 11400000, guid: 5d045a7e42374c046b8b5fbf2ffdb3de, type: 2}
+--- !u!114 &772149046304155995
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4680039614162996219}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 738de41a1011481ba26f1b3dd701ca6b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: 977f5ed06ca86fc44b61273c6a0c7f7a, type: 2}
+  alwaysListen: 1
+  Response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4680039614162996218}
+        m_TargetAssemblyTypeName: Gamefather.PlayerResource.ResourceManager, Assembly-CSharp
+        m_MethodName: OnResourceCollected
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2

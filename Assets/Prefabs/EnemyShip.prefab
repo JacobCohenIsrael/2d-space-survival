@@ -135,10 +135,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectsToSpawn:
   - {fileID: 823658307084598915, guid: 2f7c493ec8bd8e8488ffc66c667fb5d0, type: 3}
-  - {fileID: 823658307084598915, guid: 2f7c493ec8bd8e8488ffc66c667fb5d0, type: 3}
-  - {fileID: 823658307084598915, guid: 2f7c493ec8bd8e8488ffc66c667fb5d0, type: 3}
-  explosionForce: 4
-  explosionRadius: 2
+  - {fileID: 1837375630148924410, guid: ad55441784706a94eb837a9f3fe72585, type: 3}
+  - {fileID: 9136631823144159999, guid: c98c036c7d04466499dd192b6e0de374, type: 3}
+  explosionForce: 5
+  explosionRadius: 3
 --- !u!1 &1593657379287220756
 GameObject:
   m_ObjectHideFlags: 0

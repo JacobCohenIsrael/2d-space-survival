@@ -1,36 +1,34 @@
-using System;
 using JCI.Core.Events;
 using JCI.Core.Models;
+using PlayerResource;
 using UnityEngine;
 
 namespace Gamefather.PlayerResource
 {
     public class ResourceManager : MonoBehaviour
     {
-        [SerializeField] private GameEvent purpleResourceCollectedEvent;
-        [SerializeField] private IntVar purpleResourceAmount;
-        private void Awake()
-        {
-            if (purpleResourceCollectedEvent != null)
-            {
-                purpleResourceCollectedEvent.RegisterListener(OnPurpleResourceCollected);
-            }
-        }
+        [SerializeField] private IntVar purpleliumResourceAmount;
+        [SerializeField] private IntVar blueriumResourceAmount;
+        [SerializeField] private IntVar greeniumResourceAmount;
 
-        private void OnDestroy()
+        public void OnResourceCollected(ResourceController resourceController)
         {
-            if (purpleResourceCollectedEvent != null)
+            if (resourceController.resourceType == ResourceType.Purple &&  purpleliumResourceAmount != null)
             {
-                purpleResourceCollectedEvent.UnregisterListener(OnPurpleResourceCollected);
+                purpleliumResourceAmount.Add(1, true);
             }
-        }
-
-        private void OnPurpleResourceCollected()
-        {
-            if (purpleResourceAmount != null)
+            
+            if (resourceController.resourceType == ResourceType.Green &&  greeniumResourceAmount != null)
             {
-                purpleResourceAmount.Add(1, true);
+                greeniumResourceAmount.Add(1, true);
             }
+            
+            if (resourceController.resourceType == ResourceType.Blue &&  blueriumResourceAmount != null)
+            {
+                blueriumResourceAmount.Add(1, true);
+            }
+            
+            Destroy(resourceController.gameObject);
         }
     }
 }

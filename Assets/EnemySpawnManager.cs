@@ -26,7 +26,9 @@ public class EnemySpawnManager : MonoBehaviour
     private void SpawnEnemy()
     {
         // Calculate a random position within the spawner's bounds
-        Vector3 randomPosition = transform.position + Random.insideUnitSphere * spawnRadius;
+        var insideUnitSphere = Random.insideUnitSphere;
+        insideUnitSphere.z = 0;
+        Vector3 randomPosition = transform.position + insideUnitSphere * spawnRadius;
 
         // Instantiate the enemy at the random position
         var newEnemy = Instantiate(enemyPrefab, randomPosition, Quaternion.identity);

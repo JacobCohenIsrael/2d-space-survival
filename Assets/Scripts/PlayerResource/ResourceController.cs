@@ -6,20 +6,19 @@ namespace Gamefather.PlayerResource
 {
     public class ResourceController : MonoBehaviour
     {
-        [SerializeField] private ResourceType resourceType;
-        [SerializeField] private GameEvent resourceCollectedEvent;
+        public ResourceType resourceType;
+        [SerializeField] private GameEventArg resourceCollectedEvent;
 
         public void OnPickup()
         {
             if (resourceCollectedEvent != null)
             {
-                resourceCollectedEvent.Raise();
+                resourceCollectedEvent.Raise(this);
             }
             else
             {
                 Debug.LogError("No resource collected event attached");
             }
-            Destroy(gameObject);
         }
     }
 }
