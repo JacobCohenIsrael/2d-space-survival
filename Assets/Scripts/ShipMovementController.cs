@@ -20,7 +20,7 @@ namespace Gamefather
             var horizontalInput = inputVector.x;
             var verticalInput = inputVector.y;
         
-            transform.Rotate(Vector3.back * horizontalInput * speed);
+            transform.Rotate(Vector3.back * horizontalInput * (speed / 2));
         
             switch (verticalInput)
             {
