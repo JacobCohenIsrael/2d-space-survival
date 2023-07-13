@@ -168,6 +168,17 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
+                    ""id"": ""5ca0f528-971e-4221-9969-a15efdf53744"",
+                    ""path"": ""<Gamepad>/dpad"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""e0b8d4b4-59ff-4831-bde2-046f8ff3a1da"",
                     ""path"": ""<Keyboard>/space"",
                     ""interactions"": """",
@@ -190,6 +201,17 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
+                    ""id"": ""a0d05868-e040-4f09-82c6-841b4bc0c378"",
+                    ""path"": ""<Gamepad>/buttonWest"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Fire"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""45f30929-004c-42b5-98df-c5f4490b20e0"",
                     ""path"": ""<Mouse>/rightButton"",
                     ""interactions"": """",
@@ -203,6 +225,17 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                     ""name"": """",
                     ""id"": ""d0bea3a1-6303-481a-af63-37ee0799830a"",
                     ""path"": ""<Keyboard>/f"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Pull"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b951a8ed-0890-4d68-a708-a749bf033879"",
+                    ""path"": ""<Gamepad>/buttonEast"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",

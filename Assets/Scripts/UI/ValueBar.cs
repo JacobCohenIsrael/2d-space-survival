@@ -8,11 +8,11 @@ namespace Gamefather.UI
     {
         [SerializeField] private IntVar currentValue;
         [SerializeField] private Slider slider;
-        [SerializeField] private int maxValue = 100;
+        [SerializeField] private IntVar maxValue;
         private void Awake()
         {
             slider.minValue = 0;
-            slider.maxValue = maxValue;
+            slider.maxValue = maxValue.value;
             slider.value = currentValue.value;
             slider.wholeNumbers = true;
             currentValue.Updated += OnCurrentValueUpdated;
@@ -25,7 +25,7 @@ namespace Gamefather.UI
 
         private void OnCurrentValueUpdated(int value)
         {
-            slider.value = Mathf.Min(value, maxValue);
+            slider.value = Mathf.Min(value, maxValue.value);
         }
     }
 }

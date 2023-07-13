@@ -1,3 +1,4 @@
+using System;
 using JCI.Core.Events;
 using JCI.Core.Models;
 using PlayerResource;
@@ -10,6 +11,13 @@ namespace Gamefather.PlayerResource
         [SerializeField] private IntVar purpleliumResourceAmount;
         [SerializeField] private IntVar blueriumResourceAmount;
         [SerializeField] private IntVar greeniumResourceAmount;
+
+        private void Start()
+        {
+            purpleliumResourceAmount.SetAndNotify(0);
+            blueriumResourceAmount.SetAndNotify(0);
+            greeniumResourceAmount.SetAndNotify(0);
+        }
 
         public void OnResourceCollected(ResourceController resourceController)
         {
